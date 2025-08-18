@@ -2,67 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 커스텀 CSS */
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    margin: 0;
-    min-height: 100vh;
-  }
+/* 기본 스타일 */
+* {
+  box-sizing: border-box;
 }
 
-@layer components {
-  /* 포켓몬 카드 컴포넌트 */
-  .pokemon-card {
-    @apply bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden;
-  }
-  
-  /* 포켓몬 타입 배지 */
-  .type-badge {
-    @apply px-3 py-1 rounded-full text-white text-sm font-medium;
-  }
-  
-  /* 버튼 스타일 */
-  .btn-primary {
-    @apply bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200;
-  }
-  
-  .btn-secondary {
-    @apply bg-secondary-500 hover:bg-secondary-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200;
-  }
-  
-  /* 전투 관련 애니메이션 */
-  .battle-animation {
-    @apply animate-shake;
-  }
-  
-  /* 가챠 관련 애니메이션 */
-  .gacha-glow {
-    @apply animate-pulse-slow;
-  }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: white;
+  color: #1f2937;
 }
 
-@layer utilities {
-  /* 포켓몬 타입별 색상 유틸리티 */
-  .bg-type-normal { @apply bg-pokemon-normal; }
-  .bg-type-fire { @apply bg-pokemon-fire; }
-  .bg-type-water { @apply bg-pokemon-water; }
-  .bg-type-electric { @apply bg-pokemon-electric; }
-  .bg-type-grass { @apply bg-pokemon-grass; }
-  .bg-type-ice { @apply bg-pokemon-ice; }
-  .bg-type-fighting { @apply bg-pokemon-fighting; }
-  .bg-type-poison { @apply bg-pokemon-poison; }
-  .bg-type-ground { @apply bg-pokemon-ground; }
-  .bg-type-flying { @apply bg-pokemon-flying; }
-  .bg-type-psychic { @apply bg-pokemon-psychic; }
-  .bg-type-bug { @apply bg-pokemon-bug; }
-  .bg-type-rock { @apply bg-pokemon-rock; }
-  .bg-type-ghost { @apply bg-pokemon-ghost; }
-  .bg-type-dragon { @apply bg-pokemon-dragon; }
-  .bg-type-dark { @apply bg-pokemon-dark; }
-  .bg-type-steel { @apply bg-pokemon-steel; }
-  .bg-type-fairy { @apply bg-pokemon-fairy; }
+/* 포켓몬 카드 컴포넌트 */
+.pokemon-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
+
+.pokemon-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* 포켓몬 타입 배지 */
+.type-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* 버튼 스타일 */
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-secondary {
+  background-color: #eab308;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #ca8a04;
+}
+
+/* 애니메이션 */
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.battle-animation {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.gacha-glow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 포켓몬 타입별 색상 */
+.bg-type-normal { background-color: #A8A878; }
+.bg-type-fire { background-color: #F08030; }
+.bg-type-water { background-color: #6890F0; }
+.bg-type-electric { background-color: #F8D030; }
+.bg-type-grass { background-color: #78C850; }
+.bg-type-ice { background-color: #98D8D8; }
+.bg-type-fighting { background-color: #C03028; }
+.bg-type-poison { background-color: #A040A0; }
+.bg-type-ground { background-color: #E0C068; }
+.bg-type-flying { background-color: #A890F0; }
+.bg-type-psychic { background-color: #F85888; }
+.bg-type-bug { background-color: #A8B820; }
+.bg-type-rock { background-color: #B8A038; }
+.bg-type-ghost { background-color: #705898; }
+.bg-type-dragon { background-color: #7038F8; }
+.bg-type-dark { background-color: #705848; }
+.bg-type-steel { background-color: #B8B8D0; }
+.bg-type-fairy { background-color: #EE99AC; }
